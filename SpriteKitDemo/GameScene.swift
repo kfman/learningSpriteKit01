@@ -11,7 +11,7 @@ class GameScene: SKScene {
     
     let myFirstNode = SKNode()
     let myFirstSpriteNode = SKSpriteNode(color:UIColor.red, size: CGSize(width: 200.0, height: 200.0))
-    let myBlueSpriteNode = SKSpriteNode(color:UIColor.blue, size: CGSize(width: 100.0, height: 100.0))
+    let blueBox = SKSpriteNode(color:UIColor.blue, size: CGSize(width: 100.0, height: 100.0))
     let spaceship = SKSpriteNode(imageNamed: "spaceship")
     
     override func didMove(to view: SKView) {
@@ -24,9 +24,17 @@ class GameScene: SKScene {
         spaceship.size = CGSize(width: 100.0, height: 100.0)
         spaceship.zPosition = 1
         myFirstSpriteNode.addChild(spaceship)
-        myBlueSpriteNode.position = CGPoint(x:myFirstSpriteNode.size.width / 2 , y:myFirstSpriteNode.size.height / 2)
-        myBlueSpriteNode.zPosition = 2
-        myFirstSpriteNode.addChild(myBlueSpriteNode)
+        blueBox.position = CGPoint(x:myFirstSpriteNode.size.width / 2 , y:myFirstSpriteNode.size.height / 2)
+        blueBox.zPosition = 2
+        myFirstSpriteNode.addChild(blueBox)
+        
+        physicsWorld.gravity = CGVector(dx: -1.0, dy: -2.0)
+        spaceship.physicsBody = SKPhysicsBody(circleOfRadius: spaceship.size.width / 2)
+        spaceship.physicsBody!.restitution = 1.0
+        
+        blueBox.physicsBody = SKPhysicsBody(rectangleOf: blueBox.size)
+        
+        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
