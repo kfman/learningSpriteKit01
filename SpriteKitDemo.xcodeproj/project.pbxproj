@@ -14,6 +14,8 @@
 		24CCC22F2570CBC4001A0415 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24CCC22E2570CBC4001A0415 /* Assets.xcassets */; };
 		24CCC23A2570CBC4001A0415 /* SpriteKitDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCC2392570CBC4001A0415 /* SpriteKitDemoTests.swift */; };
 		24CCC2452570CBC4001A0415 /* SpriteKitDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCC2442570CBC4001A0415 /* SpriteKitDemoUITests.swift */; };
+		24CCC265257124FE001A0415 /* MyFirstTileMapScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 24CCC264257124FE001A0415 /* MyFirstTileMapScene.sks */; };
+		24CCC26A25712611001A0415 /* MyFirstTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 24CCC26925712611001A0415 /* MyFirstTileSet.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		24CCC2402570CBC4001A0415 /* SpriteKitDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpriteKitDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24CCC2442570CBC4001A0415 /* SpriteKitDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitDemoUITests.swift; sourceTree = "<group>"; };
 		24CCC2462570CBC4001A0415 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24CCC264257124FE001A0415 /* MyFirstTileMapScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyFirstTileMapScene.sks; sourceTree = "<group>"; };
+		24CCC26925712611001A0415 /* MyFirstTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyFirstTileSet.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				24CCC22B2570CBC3001A0415 /* Main.storyboard */,
 				24CCC22E2570CBC4001A0415 /* Assets.xcassets */,
 				24CCC2302570CBC4001A0415 /* Info.plist */,
+				24CCC264257124FE001A0415 /* MyFirstTileMapScene.sks */,
+				24CCC26925712611001A0415 /* MyFirstTileSet.sks */,
 			);
 			path = SpriteKitDemo;
 			sourceTree = "<group>";
@@ -229,6 +235,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				24CCC22D2570CBC3001A0415 /* Main.storyboard in Resources */,
+				24CCC26A25712611001A0415 /* MyFirstTileSet.sks in Resources */,
+				24CCC265257124FE001A0415 /* MyFirstTileMapScene.sks in Resources */,
 				24CCC22F2570CBC4001A0415 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
