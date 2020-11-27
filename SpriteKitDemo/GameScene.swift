@@ -9,62 +9,51 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    let myFirstNode = SKNode()
-    let myFirstSpriteNode = SKSpriteNode(color:UIColor.red, size: CGSize(width: 200.0, height: 200.0))
-    let blueBox = SKSpriteNode(color:UIColor.blue, size: CGSize(width: 100.0, height: 100.0))
-    let spaceship = SKSpriteNode(imageNamed: "spaceship")
+    let dogSpriteNode = SKSpriteNode(imageNamed: "Run0")
+    var dogFrames = [SKTexture]()
     
     override func didMove(to view: SKView) {
-        addChild(myFirstNode)
+        dogSpriteNode.position = CGPoint(x: frame.midX, y: frame.midY)
+        addChild(dogSpriteNode)
         
-        myFirstSpriteNode.position = CGPoint(x: frame.midX - 100, y: frame.midY - 150)
-        myFirstSpriteNode.anchorPoint = CGPoint.zero
-        addChild(myFirstSpriteNode)
-        
-        spaceship.size = CGSize(width: 100.0, height: 100.0)
-        spaceship.zPosition = 1
-        myFirstSpriteNode.addChild(spaceship)
-        blueBox.position = CGPoint(x:myFirstSpriteNode.size.width / 2 , y:myFirstSpriteNode.size.height / 2)
-        blueBox.zPosition = 2
-        myFirstSpriteNode.addChild(blueBox)
-        
-        physicsWorld.gravity = CGVector(dx: -1.0, dy: -2.0)
-        spaceship.physicsBody = SKPhysicsBody(circleOfRadius: spaceship.size.width / 2)
-        spaceship.physicsBody!.restitution = 1.0
-        
-        blueBox.physicsBody = SKPhysicsBody(rectangleOf: blueBox.size)
-        
-        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        let textureAtlas = SKTextureAtlas(named: "Dog Frames")
+        for index in 0..<textureAtlas.textureNames.count{
+            let textureName = "Run\(index)"
+            dogFrames.append(textureAtlas.textureNamed(textureName))
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
-//        myFirstTexturedSpriteNode.run(SKAction.move(to: CGPoint(x: myFirstSpriteNode.size.width,y: myFirstSpriteNode.size.height), duration: 2.0))
-//
-//        myBlueSpriteNode.run(SKAction.rotate(byAngle: .pi, duration: 2.0))
-//        myFirstTexturedSpriteNode.run(SKAction.move(to: CGPoint(x: myFirstSpriteNode.size.width,y: myFirstSpriteNode.size.height),duration: 2.0)) {
-//            self.myFirstTexturedSpriteNode.position = CGPoint.zero
-//        }
-//
-//        if !myBlueSpriteNode.hasActions(){
-//            myBlueSpriteNode.run(SKAction.repeatForever(
-//                                    SKAction.rotate(byAngle: .pi, duration:  2.0)))
-//            myBlueSpriteNode.run(SKAction.group([SKAction.rotate(byAngle: .pi, duration:  2.0),
-//                                                 SKAction.scale(by: 0.9, duration: 2.0)))
-//            myBlueSpriteNode.run(SKAction.sequence([
-//                                                    SKAction.rotate(byAngle: .pi, duration:  0.5),
-//                                                    SKAction.scale(by: 0.9, duration: 2.0)
-//                                                 ]))
-//            }
-//        else{
-//            myBlueSpriteNode.removeAllActions()
-//        }
-//
-        if let _ = spaceship.action(forKey: "Rotation"){
-            spaceship.removeAction(forKey: "Rotation")
+        
+        if !dogSpriteNode.hasActions(){
+            dogSpriteNode.run(SKAction.repeatForever(SKAction.animate(with: dogFrames, timePerFrame: 0.1)))
         }
         else{
-            spaceship.run(SKAction.repeatForever(SKAction.rotate(byAngle: .pi, duration: 2.0)), withKey: "Rotation")
+            dogSpriteNode.removeAllActions()
         }
     }
+    
+    /*
+    override func update(_ currentTime: TimeInterval) {
+        print("1")
+    }
+    
+    override func didEvaluateActions() {
+        print("2")
+    }
+    
+    override func didSimulatePhysics() {
+        print("3")
+    }
+    
+    override func didApplyConstraints() {
+        print("4")
+    }
+    
+    override func didFinishUpdate() {
+        print("5")
+        isPaused = true
+    }
+ */
 }
+
